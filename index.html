@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HorseHub360 | Gestão completa. Performance total.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-icone-gold.png">
+  <link rel="apple-touch-icon" href="assets/logo-horizontal.png">
+  <meta name="theme-color" content="#0D1B2A">
+  <style>
+    :root{
+      --navy-900:#0D1B2A; --navy-800:#1B263B; --gold-500:#D4AF37; --gold-600:#B88A4A;
+      --cream-100:#F1EDE3; --teal-600:#1E6B5C; --text:#e7ecf1; --wa:#25D366;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Poppins,sans-serif;background:linear-gradient(135deg,var(--navy-900),#0a1420);color:var(--text)}
+    .container{width:min(1160px,92%);margin:0 auto}
+    header{position:sticky;top:0;background:rgba(13,27,42,.78);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);z-index:99}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.7rem}
+    .brand img.icon{width:40px;height:40px;border-radius:10px;object-fit:cover}
+    .brand img.word{height:26px;object-fit:contain}
+    nav a{color:#c8d0da;text-decoration:none;margin-left:1rem;font-size:.95rem}
+    nav a:hover{color:#fff}
+
+    .hero{padding:4.2rem 0 3rem;background:
+      radial-gradient(circle at 20% 10%, rgba(212,175,55,.18), transparent 34%),
+      radial-gradient(circle at 80% 25%, rgba(30,107,92,.17), transparent 35%)}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2rem;align-items:center}
+    h1{font-size:clamp(2rem,4vw,3.15rem);line-height:1.12;margin-bottom:1rem}
+    h1 span{color:var(--gold-500)}
+    .sub{color:#d0d9e3;max-width:680px}
+    .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+    .btn{
+      display:inline-flex;align-items:center;gap:.55rem;
+      border:none;cursor:pointer;font-weight:700;border-radius:12px;padding:.9rem 1.15rem;
+      text-decoration:none;transition:.22s ease
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--gold-500),var(--gold-600));color:#111}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-app{
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .btn-app:hover{
+      transform:translateY(-2px);
+      border-color:rgba(212,175,55,.55);
+      background:rgba(255,255,255,.04);
+    }
+    .btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 22px rgba(37,211,102,.25)}
+    .btn-wa:hover{filter:brightness(1.06);transform:translateY(-2px)}
+
+    /* Logo area melhorada */
+    .logo-showcase{
+      background:linear-gradient(160deg,#10243a,#0f2034);
+      border:1px solid rgba(212,175,55,.28);
+      border-radius:18px;
+      padding:1rem;
+      box-shadow:0 12px 32px rgba(0,0,0,.28);
+    }
+    .main-logo{
+      background:#fff;border-radius:14px;padding:1rem;
+      display:grid;place-items:center;min-height:240px;
+    }
+    .main-logo img{
+      width:min(320px,92%);height:auto;object-fit:contain;display:block;
+      filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));
+    }
+    .mini-logos{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-top:.65rem
+    }
+    .mini{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      height:90px;
+      display:grid;place-items:center;padding:.45rem;
+    }
+    .mini img{max-width:100%;max-height:72px;object-fit:contain}
+
+    section{padding:3.4rem 0}
+    .title{text-align:center;margin-bottom:1.7rem}
+    .title h2{font-size:clamp(1.4rem,3vw,2rem)}
+    .title p{color:#bfc9d5}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1rem}
+    .card h3{margin:.55rem 0;font-size:1rem}
+    .card p{color:#bcc7d3;font-size:.92rem}
+    .cta-final{
+      border:1px solid rgba(212,175,55,.35);
+      background:linear-gradient(145deg,rgba(212,175,55,.1),rgba(30,107,92,.13));
+      border-radius:18px;text-align:center;padding:2rem
+    }
+    footer{padding:2rem 0;text-align:center;color:#9da9b7}
+
+    /* Botão flutuante WhatsApp */
+    .wa-float{
+      position:fixed;right:18px;bottom:18px;z-index:120;
+      width:58px;height:58px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--wa);color:#fff;text-decoration:none;font-size:1.6rem;
+      box-shadow:0 10px 24px rgba(37,211,102,.35);
+      animation:pulse 1.9s infinite;
+    }
+    .wa-float img{
+      width:30px;
+      height:30px;
+      display:block;
+      object-fit:contain;
+      filter:brightness(0) invert(1);
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)}
+      70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
+      100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+    }
+
+    @media(max-width:950px){
+      .hero-grid{grid-template-columns:1fr}
+      .main-logo{min-height:200px}
+      .mini{height:80px}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="icon" src="assets/logo-icone-gold.png" alt="Ícone HorseHub">
+      </div>
+      <nav>
+        <a href="#func">Funcionalidades</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Seu haras com visão <span>360°</span> de performance e gestão.</h1>
+          <p class="sub">
+            Uma plataforma completa para gerenciar e evoluir cavalos com precisão: treinos, dieta, saúde, serviços, campeonatos e portal do proprietário em um só lugar.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#func">Ver funcionalidades</a>
+            <a class="btn btn-app" target="_blank" rel="noopener noreferrer" href="https://apps.horsehub360.com.br">Vamos ver!</a>
+            <a class="btn btn-wa" target="_blank"
+               href="https://wa.me/SEUNUMERO?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360.">
+              <img src="assets/whatsapp.png" width="20" alt="whatsapp"> Solicite seu orçamento por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-showcase">
+          <div class="main-logo">
+            <img src="assets/logo-principal.png" alt="Logo principal HorseHub">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="func">
+      <div class="container">
+        <div class="title">
+          <h2>Funcionalidades que encantam o usuário final</h2>
+          <p>Design premium + gestão completa para centro de treinamento e haras.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>🐎 Cadastro de cavalos</h3><p>Ficha, histórico, mídia e documentos.</p></div>
+          <div class="card"><h3>📅 Cronograma de treinos</h3><p>Planejamento por cavalo, treinador e meta.</p></div>
+          <div class="card"><h3>🥕 Alimentação e manejo</h3><p>Controle nutricional com rastreabilidade.</p></div>
+          <div class="card"><h3>🩺 Saúde</h3><p>Vacinas, exames, eventos clínicos e alertas.</p></div>
+          <div class="card"><h3>🏆 Campeonatos e provas</h3><p>Agenda, inscrições e resultados.</p></div>
+          <div class="card"><h3>📈 Visão do proprietário</h3><p>Portal com acompanhamento claro da evolução, rotina e desempenho de cada cavalo.</p></div>
+          <div class="card"><h3>🛠️ Serviços</h3><p>Publique, organize e gerencie seus serviços — como casqueamento, massagem e treinamentos — com controle de execução, valores e histórico.</p></div>
+          <div class="card">
+            <h3>🪪 Passaporte digital</h3>
+            <p>Centralize o histórico do cavalo em um passaporte digital com dados de saúde, treinos, alimentação, competições e documentos importantes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="cta-final">
+          <h2>Quer um orçamento para o seu haras?</h2>
+          <p style="margin:.6rem 0 1rem;color:#d4dde8">Fale agora com nosso time e receba uma proposta personalizada.</p>          <a class="btn btn-wa" target="_blank"
+             href="https://wa.me/SEUNUMERO?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360.">
+             <img src="assets/whatsapp.png" width="20" alt="whatsapp"> Solicite seu orçamento por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="wa-float" target="_blank"
+     href="https://wa.me/SEUNUMERO?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360."
+     aria-label="Falar no WhatsApp">
+      <img src="assets/whatsapp.png" alt="WhatsApp">
+  </a>
+
+  <footer>
+    © <span id="year"></span> HorseHub360 Tecnologia Ltda. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
