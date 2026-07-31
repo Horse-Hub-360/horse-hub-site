@@ -4,216 +4,948 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HorseHub360 | Gestão completa. Performance total.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Plataforma 360° para haras e centros de treinamento: cadastro de cavalos, treinos, nutrição, saúde, campeonatos, serviços, passaporte digital e portal do proprietário em um só lugar." />
+  <meta name="theme-color" content="#0D1B2A" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-icone-gold.png">
-  <link rel="apple-touch-icon" href="assets/logo-horizontal.png">
-  <meta name="theme-color" content="#0D1B2A">
-  <style>
-    :root{
-      --navy-900:#0D1B2A; --navy-800:#1B263B; --gold-500:#D4AF37; --gold-600:#B88A4A;
-      --cream-100:#F1EDE3; --teal-600:#1E6B5C; --text:#e7ecf1; --wa:#25D366;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Poppins,sans-serif;background:linear-gradient(135deg,var(--navy-900),#0a1420);color:var(--text)}
-    .container{width:min(1160px,92%);margin:0 auto}
-    header{position:sticky;top:0;background:rgba(13,27,42,.78);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);z-index:99}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
-    .brand{display:flex;align-items:center;gap:.7rem}
-    .brand img.icon{width:40px;height:40px;border-radius:10px;object-fit:cover}
-    .brand img.word{height:26px;object-fit:contain}
-    nav a{color:#c8d0da;text-decoration:none;margin-left:1rem;font-size:.95rem}
-    nav a:hover{color:#fff}
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo-icone-gold.png" />
+  <link rel="apple-touch-icon" href="assets/logo-icone-gold.png" />
 
-    .hero{padding:4.2rem 0 3rem;background:
-      radial-gradient(circle at 20% 10%, rgba(212,175,55,.18), transparent 34%),
-      radial-gradient(circle at 80% 25%, rgba(30,107,92,.17), transparent 35%)}
-    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2rem;align-items:center}
-    h1{font-size:clamp(2rem,4vw,3.15rem);line-height:1.12;margin-bottom:1rem}
-    h1 span{color:var(--gold-500)}
-    .sub{color:#d0d9e3;max-width:680px}
-    .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
-    .btn{
-      display:inline-flex;align-items:center;gap:.55rem;
-      border:none;cursor:pointer;font-weight:700;border-radius:12px;padding:.9rem 1.15rem;
-      text-decoration:none;transition:.22s ease
-    }
-    .btn-primary{background:linear-gradient(135deg,var(--gold-500),var(--gold-600));color:#111}
-    .btn-primary:hover{transform:translateY(-2px)}
-    .btn-app{
-      background:transparent;
-      color:#fff;
-      border:1px solid rgba(255,255,255,.18);
-    }
-    .btn-app:hover{
-      transform:translateY(-2px);
-      border-color:rgba(212,175,55,.55);
-      background:rgba(255,255,255,.04);
-    }
-    .btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 22px rgba(37,211,102,.25)}
-    .btn-wa:hover{filter:brightness(1.06);transform:translateY(-2px)}
+  <!-- Prévia de compartilhamento (WhatsApp, Facebook, LinkedIn, Telegram…)
+       IMPORTANTE: og:url e og:image precisam ser URLs absolutas com o domínio
+       real do site. Se o domínio mudar, troque em todas as linhas abaixo. -->
+  <link rel="canonical" href="https://horsehub360.com.br/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="HorseHub360" />
+  <meta property="og:url" content="https://horsehub360.com.br/" />
+  <meta property="og:title" content="HorseHub360 | Gestão completa. Performance total." />
+  <meta property="og:description" content="Treinos, saúde, nutrição, campeonatos, serviços e portal do proprietário: a gestão do seu haras em uma só plataforma." />
+  <meta property="og:image" content="https://horsehub360.com.br/assets/img/og-cover.jpg" />
+  <meta property="og:image:secure_url" content="https://horsehub360.com.br/assets/img/og-cover.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cavalo caminhando na estrada de um haras ao amanhecer, com a marca HorseHub360" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HorseHub360 | Gestão completa. Performance total." />
+  <meta name="twitter:description" content="Treinos, saúde, nutrição, campeonatos, serviços e portal do proprietário: a gestão do seu haras em uma só plataforma." />
+  <meta name="twitter:image" content="https://horsehub360.com.br/assets/img/og-cover.jpg" />
 
-    /* Logo area melhorada */
-    .logo-showcase{
-      background:linear-gradient(160deg,#10243a,#0f2034);
-      border:1px solid rgba(212,175,55,.28);
-      border-radius:18px;
-      padding:1rem;
-      box-shadow:0 12px 32px rgba(0,0,0,.28);
-    }
-    .main-logo{
-      background:#fff;border-radius:14px;padding:1rem;
-      display:grid;place-items:center;min-height:240px;
-    }
-    .main-logo img{
-      width:min(320px,92%);height:auto;object-fit:contain;display:block;
-      filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));
-    }
-    .mini-logos{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-top:.65rem
-    }
-    .mini{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:12px;
-      height:90px;
-      display:grid;place-items:center;padding:.45rem;
-    }
-    .mini img{max-width:100%;max-height:72px;object-fit:contain}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    section{padding:3.4rem 0}
-    .title{text-align:center;margin-bottom:1.7rem}
-    .title h2{font-size:clamp(1.4rem,3vw,2rem)}
-    .title p{color:#bfc9d5}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1rem}
-    .card h3{margin:.55rem 0;font-size:1rem}
-    .card p{color:#bcc7d3;font-size:.92rem}
-    .cta-final{
-      border:1px solid rgba(212,175,55,.35);
-      background:linear-gradient(145deg,rgba(212,175,55,.1),rgba(30,107,92,.13));
-      border-radius:18px;text-align:center;padding:2rem
-    }
-    footer{padding:2rem 0;text-align:center;color:#9da9b7}
-
-    /* Botão flutuante WhatsApp */
-    .wa-float{
-      position:fixed;right:18px;bottom:18px;z-index:120;
-      width:58px;height:58px;border-radius:50%;
-      display:grid;place-items:center;
-      background:var(--wa);color:#fff;text-decoration:none;font-size:1.6rem;
-      box-shadow:0 10px 24px rgba(37,211,102,.35);
-      animation:pulse 1.9s infinite;
-    }
-    .wa-float img{
-      width:30px;
-      height:30px;
-      display:block;
-      object-fit:contain;
-      filter:brightness(0) invert(1);
-    }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)}
-      70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
-      100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
-    }
-
-    @media(max-width:950px){
-      .hero-grid{grid-template-columns:1fr}
-      .main-logo{min-height:200px}
-      .mini{height:80px}
-      nav{display:none}
-    }
-  </style>
+  <link rel="preload" as="image" href="assets/img/poster-hero-ride-mobile.jpg" media="(max-width:860px)" />
+  <link rel="preload" as="image" href="assets/img/poster-hero-ride.jpg" media="(min-width:861px)" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img class="icon" src="assets/logo-icone-gold.png" alt="Ícone HorseHub">
-      </div>
-      <nav>
-        <a href="#func">Funcionalidades</a>
-        <a href="#contato">Contato</a>
-      </nav>
+
+<!-- ====================================================== Sprite de ícones -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-horse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 20c0-4 2-6 5-7l1-3-3 1-2-2 4-3 3 1 2-3 3 2c2 1 3 3 3 6 0 4-2 6-4 8"/><path d="M14 6.5h.01"/>
+  </symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8 14h3M8 17.5h6"/>
+  </symbol>
+  <symbol id="i-nutrition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21c5-2 8-6 8-11V5l-8-2-8 2v5c0 5 3 9 8 11z"/><path d="M12 8v8M9 11l3-3 3 3"/>
+  </symbol>
+  <symbol id="i-health" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.5 12h-4l-2 5-4-11-2 6H2.5"/><path d="M12 20.5s7-4.5 8.5-8.5"/>
+  </symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3M9 20h6M12 14v6"/>
+  </symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 15l4-5 3 3 5-7"/>
+  </symbol>
+  <symbol id="i-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.7 6.3a4 4 0 0 0 5.3 5.3l-8 8a2.8 2.8 0 1 1-4-4l8-8z"/><path d="M6 6l3 3"/>
+  </symbol>
+  <symbol id="i-passport" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="2.5" width="16" height="19" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M8.5 17.5h7"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9.2" opacity=".35"/><path d="M8 12.4l2.6 2.6L16 9.6"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12h15M13 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="i-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M6 11l6-6 6 6"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21c5-2 8-6 8-11V5l-8-2-8 2v5c0 5 3 9 8 11z"/><path d="M9 12l2 2 4-4"/>
+  </symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8.5a6 6 0 1 0-12 0c0 6-2.5 7.5-2.5 7.5h17S18 14.5 18 8.5z"/><path d="M10.3 20a2 2 0 0 0 3.4 0"/>
+  </symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2.5H7a2.5 2.5 0 0 0-2.5 2.5v14A2.5 2.5 0 0 0 7 21.5h10a2.5 2.5 0 0 0 2.5-2.5V8z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h5"/>
+  </symbol>
+  <symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18.5h2"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="8" r="3.4"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 5.6M17.5 14.4A6.5 6.5 0 0 1 21.5 20"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/>
+  </symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.8l1.3-2h6.8l1.3 2h1.8A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.4"/>
+  </symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.6h.01"/>
+  </symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 8.5V6.8c0-.9.4-1.3 1.4-1.3H17V2.6h-2.6C11.7 2.6 11 4.2 11 6.4v2.1H9V12h2v9.4h3V12h2.3l.4-3.5H14z"/>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.4h.01M12 17v-3.6a2 2 0 0 1 4 0V17"/>
+  </symbol>
+</svg>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ================================================================ Header -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="HorseHub360 — início">
+      <img class="brand__icon" src="assets/logo-icone-gold.png" alt="" width="44" height="44" />
+      <span class="brand__text">
+        <span class="brand__name">HORSE HUB <span>360°</span></span>
+        <span class="brand__tag">Gestão completa · Performance total</span>
+      </span>
+    </a>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Navegação principal">
+      <a class="nav__link" href="#plataforma">A plataforma</a>
+      <a class="nav__link" href="#funcionalidades">Funcionalidades</a>
+      <a class="nav__link" href="#passaporte">Passaporte digital</a>
+      <a class="nav__link" href="#proprietario">Proprietário</a>
+      <a class="nav__link" href="#como-funciona">Como funciona</a>
+      <a class="nav__link" href="#faq">Dúvidas</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="btn btn-ghost" href="https://apps.horsehub360.com.br" target="_blank" rel="noopener noreferrer">Acessar plataforma</a>
+      <a class="btn btn-gold" href="#contato">Solicitar orçamento</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>Seu haras com visão <span>360°</span> de performance e gestão.</h1>
-          <p class="sub">
-            Uma plataforma completa para gerenciar e evoluir cavalos com precisão: treinos, dieta, saúde, serviços, campeonatos e portal do proprietário em um só lugar.
-          </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#func">Ver funcionalidades</a>
-            <a class="btn btn-app" target="_blank" rel="noopener noreferrer" href="https://apps.horsehub360.com.br">Vamos ver!</a>
-            <a class="btn btn-wa" target="_blank"
-               href="https://wa.me/SEUNUMERO?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360.">
-              <img src="assets/whatsapp.png" width="20" alt="whatsapp"> Solicite seu orçamento por WhatsApp
-            </a>
-          </div>
-        </div>
+<!-- ========================================================= Menu mobile -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <ul class="mobile-nav__list">
+    <li><a href="#plataforma">A plataforma</a></li>
+    <li><a href="#funcionalidades">Funcionalidades</a></li>
+    <li><a href="#passaporte">Passaporte digital</a></li>
+    <li><a href="#proprietario">Portal do proprietário</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#faq">Dúvidas</a></li>
+  </ul>
+  <div>
+    <div class="mobile-nav__cta">
+      <a class="btn btn-gold btn-block" href="#contato">Solicitar orçamento</a>
+      <a class="btn btn-ghost btn-block" href="https://apps.horsehub360.com.br" target="_blank" rel="noopener noreferrer">Acessar plataforma</a>
+    </div>
+    <p class="mobile-nav__meta">HorseHub360 — gestão completa. Performance total.</p>
+  </div>
+</div>
 
-        <div class="logo-showcase">
-          <div class="main-logo">
-            <img src="assets/logo-principal.png" alt="Logo principal HorseHub">
-          </div>
-        </div>
-      </div>
-    </section>
+<main>
 
-    <section id="func">
-      <div class="container">
-        <div class="title">
-          <h2>Funcionalidades que encantam o usuário final</h2>
-          <p>Design premium + gestão completa para centro de treinamento e haras.</p>
-        </div>
-        <div class="grid">
-          <div class="card"><h3>🐎 Cadastro de cavalos</h3><p>Ficha, histórico, mídia e documentos.</p></div>
-          <div class="card"><h3>📅 Cronograma de treinos</h3><p>Planejamento por cavalo, treinador e meta.</p></div>
-          <div class="card"><h3>🥕 Alimentação e manejo</h3><p>Controle nutricional com rastreabilidade.</p></div>
-          <div class="card"><h3>🩺 Saúde</h3><p>Vacinas, exames, eventos clínicos e alertas.</p></div>
-          <div class="card"><h3>🏆 Campeonatos e provas</h3><p>Agenda, inscrições e resultados.</p></div>
-          <div class="card"><h3>📈 Visão do proprietário</h3><p>Portal com acompanhamento claro da evolução, rotina e desempenho de cada cavalo.</p></div>
-          <div class="card"><h3>🛠️ Serviços</h3><p>Publique, organize e gerencie seus serviços — como casqueamento, massagem e treinamentos — com controle de execução, valores e histórico.</p></div>
-          <div class="card">
-            <h3>🪪 Passaporte digital</h3>
-            <p>Centralize o histórico do cavalo em um passaporte digital com dados de saúde, treinos, alimentação, competições e documentos importantes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- =============================================================== Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero__media" data-parallax data-speed="0.18">
+      <!-- Hero em vídeo. Em telas estreitas o main.js troca pela versão vertical.
+           O poster cobre os casos em que o vídeo não pode rodar (movimento
+           reduzido, economia de dados, autoplay bloqueado). -->
+      <video class="hero__video is-hero"
+             data-video-src="assets/videos/hero-ride.mp4"
+             data-video-src-mobile="assets/videos/hero-ride-mobile.mp4"
+             data-poster-mobile="assets/img/poster-hero-ride-mobile.jpg"
+             poster="assets/img/poster-hero-ride.jpg"
+             muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__glow"></div>
 
-    <section id="contato">
-      <div class="container">
-        <div class="cta-final">
-          <h2>Quer um orçamento para o seu haras?</h2>
-          <p style="margin:.6rem 0 1rem;color:#d4dde8">Fale agora com nosso time e receba uma proposta personalizada.</p>          <a class="btn btn-wa" target="_blank"
-             href="https://wa.me/SEUNUMERO?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360.">
-             <img src="assets/whatsapp.png" width="20" alt="whatsapp"> Solicite seu orçamento por WhatsApp
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <span class="hero__badge" data-reveal="fade">
+          <b>Plataforma para haras e centros de treinamento</b> <i></i>
+        </span>
+
+        <h1 class="h-xl">
+          <span class="reveal-mask" data-reveal="fade"><span>Seu haras com visão</span></span>
+          <span class="reveal-mask" data-reveal="fade" style="--delay:120ms"><span><em>360°</em> de performance</span></span>
+          <span class="reveal-mask" data-reveal="fade" style="--delay:240ms"><span>e gestão.</span></span>
+        </h1>
+
+        <p class="hero__sub lead" data-reveal style="--delay:380ms">
+          Uma plataforma completa para gerenciar e evoluir cavalos com precisão: treinos, dieta,
+          saúde, serviços, campeonatos e portal do proprietário — tudo em um só lugar, do piquete ao pódio.
+        </p>
+
+        <div class="hero__actions" data-reveal style="--delay:500ms">
+          <a class="btn btn-wa" target="_blank" rel="noopener noreferrer"
+             href="https://wa.me/5517997032430?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360.">
+            <img src="assets/whatsapp.png" width="18" height="18" alt="" /> Falar no WhatsApp
           </a>
+          <a class="btn btn-ghost" href="#funcionalidades">Ver funcionalidades</a>
+        </div>
+
+        <div class="hero__facts" data-reveal style="--delay:620ms">
+          <div class="hero__fact">
+            <strong>360°</strong>
+            <span>Visão completa do plantel, do treino à competição</span>
+          </div>
+          <div class="hero__fact">
+            <strong>8 módulos</strong>
+            <span>Integrados na mesma plataforma</span>
+          </div>
+          <div class="hero__fact">
+            <strong>1 acesso</strong>
+            <span>Equipe, proprietários e profissionais conectados</span>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <a class="wa-float" target="_blank"
-     href="https://wa.me/SEUNUMERO?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360."
-     aria-label="Falar no WhatsApp">
-      <img src="assets/whatsapp.png" alt="WhatsApp">
-  </a>
+      <!-- Card flutuante -->
+      <aside class="hero__card" data-reveal="zoom" style="--delay:400ms" aria-label="Exemplo de ficha de cavalo">
+        <div class="hero__card-head">
+          <img src="assets/img/portrait-bw-800.jpg" alt="" width="38" height="38" loading="lazy" />
+          <div>
+            <strong>Vento do Norte</strong>
+            <span>Mangalarga · 7 anos · Baia 12</span>
+          </div>
+          <span class="pill">Ativo</span>
+        </div>
+        <div class="hero__rows">
+          <div class="hero__row">
+            <span class="ico"><svg><use href="#i-calendar"></use></svg></span>
+            Treino de salto — 07h30
+            <small>Hoje</small>
+          </div>
+          <div class="hero__row">
+            <span class="ico"><svg><use href="#i-nutrition"></use></svg></span>
+            Dieta ajustada · fase de carga
+            <small>3x/dia</small>
+          </div>
+          <div class="hero__row">
+            <span class="ico"><svg><use href="#i-health"></use></svg></span>
+            Vermifugação agendada
+            <small>em 6 dias</small>
+          </div>
+        </div>
+        <div class="hero__bar" aria-hidden="true"><i></i></div>
+        <div class="hero__card-foot">
+          <span>Plano de treino do mês</span>
+          <span>78% concluído</span>
+        </div>
+      </aside>
+    </div>
 
-  <footer>
-    © <span id="year"></span> HorseHub360 Tecnologia Ltda. Todos os direitos reservados.
-  </footer>
+    <span class="hero__scroll" aria-hidden="true">Explore <i></i></span>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- ============================================================= Ticker -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <div class="ticker__group">
+        <span class="ticker__item">Cadastro de cavalos</span>
+        <span class="ticker__item">Cronograma de treinos</span>
+        <span class="ticker__item">Nutrição e manejo</span>
+        <span class="ticker__item">Saúde e sanidade</span>
+        <span class="ticker__item">Campeonatos e provas</span>
+        <span class="ticker__item">Portal do proprietário</span>
+        <span class="ticker__item">Serviços</span>
+        <span class="ticker__item">Passaporte digital</span>
+      </div>
+      <div class="ticker__group">
+        <span class="ticker__item">Cadastro de cavalos</span>
+        <span class="ticker__item">Cronograma de treinos</span>
+        <span class="ticker__item">Nutrição e manejo</span>
+        <span class="ticker__item">Saúde e sanidade</span>
+        <span class="ticker__item">Campeonatos e provas</span>
+        <span class="ticker__item">Portal do proprietário</span>
+        <span class="ticker__item">Serviços</span>
+        <span class="ticker__item">Passaporte digital</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= A plataforma -->
+  <section class="section section--mid" id="plataforma">
+    <div class="container split">
+      <div class="split__content">
+        <span class="eyebrow" data-reveal="fade">A plataforma</span>
+        <h2 class="h-lg" data-reveal>Do caderno de anotações ao <span class="gold">controle total</span> do plantel.</h2>
+        <p class="lead" data-reveal style="--delay:100ms">
+          Fichas soltas, planilhas paralelas e mensagens perdidas no celular custam caro para um haras.
+          O HorseHub360 reúne rotina, histórico e resultados de cada cavalo em uma linha do tempo única —
+          acessível para a equipe do haras e para os proprietários.
+        </p>
+
+        <ul class="check-list">
+          <li data-reveal style="--delay:160ms">
+            <svg><use href="#i-check"></use></svg>
+            <span><strong>Uma ficha por cavalo</strong> — dados, histórico, mídias e documentos sempre no mesmo lugar.</span>
+          </li>
+          <li data-reveal style="--delay:220ms">
+            <svg><use href="#i-check"></use></svg>
+            <span><strong>Rotina organizada</strong> — treinos, manejo, saúde e serviços registrados no dia a dia.</span>
+          </li>
+          <li data-reveal style="--delay:280ms">
+            <svg><use href="#i-check"></use></svg>
+            <span><strong>Transparência com o proprietário</strong> — acompanhamento claro da evolução de cada animal.</span>
+          </li>
+          <li data-reveal style="--delay:340ms">
+            <svg><use href="#i-check"></use></svg>
+            <span><strong>Decisões com base em dados</strong> — o histórico completo à mão na hora de decidir.</span>
+          </li>
+        </ul>
+
+        <p data-reveal style="margin-top:1.8rem;--delay:400ms">
+          <a class="link-arrow" href="#funcionalidades">Conhecer os módulos <svg width="18" height="18"><use href="#i-arrow"></use></svg></a>
+        </p>
+      </div>
+
+      <div class="split__media" data-reveal="right">
+        <figure class="frame frame--tall frame--parallax">
+          <img src="assets/img/stable-hall.jpg"
+               srcset="assets/img/stable-hall-800.jpg 820w, assets/img/stable-hall.jpg 1600w"
+               sizes="(max-width:860px) 92vw, 46vw"
+               alt="Corredor de baias iluminado em um haras, com cavalos nas cocheiras" loading="lazy" width="1600" height="753"
+               data-parallax data-speed="0.09" />
+        </figure>
+        <div class="badge-float badge-float--bl" data-reveal="zoom" style="--delay:260ms">
+          <span class="ico"><svg width="19" height="19"><use href="#i-horse"></use></svg></span>
+          <div>
+            <strong>Plantel organizado</strong>
+            <span>Cada cavalo com sua ficha viva</span>
+          </div>
+        </div>
+        <div class="badge-float badge-float--tr" data-reveal="zoom" style="--delay:380ms">
+          <span class="ico"><svg width="19" height="19"><use href="#i-bell"></use></svg></span>
+          <div>
+            <strong>Nada esquecido</strong>
+            <span>Agenda e alertas da rotina</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= Funcionalidades -->
+  <section class="section section--deep" id="funcionalidades">
+    <div class="container">
+      <div class="section-head is-centered">
+        <span class="eyebrow is-centered" data-reveal="fade">Funcionalidades</span>
+        <h2 class="h-lg" data-reveal>Oito módulos que conversam entre si</h2>
+        <p class="lead" style="margin-inline:auto" data-reveal="fade">
+          Design premium e gestão completa para haras, centros de treinamento e profissionais do meio equestre.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card" data-reveal style="--delay:0ms">
+          <span class="ico"><svg><use href="#i-horse"></use></svg></span>
+          <h3>Cadastro de cavalos</h3>
+          <p>Ficha completa com dados do animal, histórico, galeria de mídias e documentos anexados.</p>
+        </article>
+        <article class="feature-card" data-reveal style="--delay:60ms">
+          <span class="ico"><svg><use href="#i-calendar"></use></svg></span>
+          <h3>Cronograma de treinos</h3>
+          <p>Planejamento por cavalo, por treinador e por meta, com acompanhamento da execução.</p>
+        </article>
+        <article class="feature-card" data-reveal style="--delay:120ms">
+          <span class="ico"><svg><use href="#i-nutrition"></use></svg></span>
+          <h3>Alimentação e manejo</h3>
+          <p>Controle nutricional com rastreabilidade do que foi planejado e do que foi realmente fornecido.</p>
+        </article>
+        <article class="feature-card" data-reveal style="--delay:180ms">
+          <span class="ico"><svg><use href="#i-health"></use></svg></span>
+          <h3>Saúde</h3>
+          <p>Vacinas, exames, eventos clínicos e alertas para não perder nenhuma data importante.</p>
+        </article>
+        <article class="feature-card" data-reveal style="--delay:0ms">
+          <span class="ico"><svg><use href="#i-trophy"></use></svg></span>
+          <h3>Campeonatos e provas</h3>
+          <p>Agenda de competições, inscrições e registro de resultados por cavalo e conjunto.</p>
+        </article>
+        <article class="feature-card" data-reveal style="--delay:60ms">
+          <span class="ico"><svg><use href="#i-chart"></use></svg></span>
+          <h3>Visão do proprietário</h3>
+          <p>Portal com acompanhamento claro da evolução, da rotina e do desempenho de cada cavalo.</p>
+        </article>
+        <article class="feature-card" data-reveal style="--delay:120ms">
+          <span class="ico"><svg><use href="#i-tools"></use></svg></span>
+          <h3>Serviços</h3>
+          <p>Publique e gerencie serviços como casqueamento, massagem e treinamentos, com execução, valores e histórico.</p>
+        </article>
+        <article class="feature-card" data-reveal style="--delay:180ms">
+          <span class="ico"><svg><use href="#i-passport"></use></svg></span>
+          <h3>Passaporte digital</h3>
+          <p>Todo o histórico do cavalo centralizado: saúde, treinos, alimentação, competições e documentos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== Funcionalidades em detalhe -->
+  <section class="section section--mid" id="detalhes" style="padding-top:0">
+    <div class="container">
+
+      <!-- 01 · Treinos -->
+      <article class="detail">
+        <div class="detail__content">
+          <div class="detail__num" data-reveal="fade">01</div>
+          <span class="detail__tag" data-reveal="fade">Cronograma de treinos</span>
+          <h3 class="h-md" data-reveal>Cada treino planejado, executado e registrado.</h3>
+          <p data-reveal style="--delay:80ms">
+            Monte o plano de trabalho de cada cavalo por período e por objetivo, distribua entre os
+            treinadores e acompanhe o que foi realmente executado na pista — sem depender da memória de ninguém.
+          </p>
+          <ul class="detail__list">
+            <li data-reveal="left" style="--delay:120ms"><svg><use href="#i-check"></use></svg> Planejamento por cavalo, treinador e meta</li>
+            <li data-reveal="left" style="--delay:170ms"><svg><use href="#i-check"></use></svg> Agenda diária e semanal da pista</li>
+            <li data-reveal="left" style="--delay:220ms"><svg><use href="#i-check"></use></svg> Registro de execução e observações do treinador</li>
+            <li data-reveal="left" style="--delay:270ms"><svg><use href="#i-check"></use></svg> Histórico de carga de trabalho por animal</li>
+          </ul>
+        </div>
+        <div class="detail__media" data-reveal="right">
+          <figure class="frame frame--parallax">
+            <img src="assets/img/training.jpg"
+                 srcset="assets/img/training-800.jpg 820w, assets/img/training.jpg 1600w"
+                 sizes="(max-width:860px) 92vw, 46vw"
+                 alt="Cavaleira treinando cavalo em pista de areia cercada por mata" loading="lazy" width="1600" height="1067"
+                 data-parallax data-speed="0.08" />
+          </figure>
+          <div class="badge-float badge-float--bl" data-reveal="zoom" style="--delay:220ms">
+            <span class="ico"><svg width="19" height="19"><use href="#i-clock"></use></svg></span>
+            <div><strong>Rotina sob controle</strong><span>Do aquecimento ao descanso</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 · Saúde -->
+      <article class="detail">
+        <div class="detail__content">
+          <div class="detail__num" data-reveal="fade">02</div>
+          <span class="detail__tag" data-reveal="fade">Saúde e sanidade</span>
+          <h3 class="h-md" data-reveal>Um prontuário completo para cada cavalo.</h3>
+          <p data-reveal style="--delay:80ms">
+            Vacinas, vermifugações, exames e eventos clínicos organizados em ordem cronológica,
+            com alertas que avisam o que está próximo do vencimento antes que vire problema.
+          </p>
+          <ul class="detail__list">
+            <li data-reveal="left" style="--delay:120ms"><svg><use href="#i-check"></use></svg> Carteira de vacinas e vermifugação sempre em dia</li>
+            <li data-reveal="left" style="--delay:170ms"><svg><use href="#i-check"></use></svg> Exames e laudos anexados à ficha do animal</li>
+            <li data-reveal="left" style="--delay:220ms"><svg><use href="#i-check"></use></svg> Eventos clínicos com evolução e responsável</li>
+            <li data-reveal="left" style="--delay:270ms"><svg><use href="#i-check"></use></svg> Alertas de datas importantes para a equipe</li>
+          </ul>
+        </div>
+        <div class="detail__media" data-reveal="left">
+          <figure class="frame frame--video">
+            <video class="media-video" data-video-src="assets/videos/stable-care.mp4"
+                   poster="assets/img/poster-stable-care.jpg"
+                   muted loop playsinline preload="none"
+                   aria-label="Profissional preparando um cavalo dentro da cocheira"></video>
+          </figure>
+          <div class="badge-float badge-float--tr" data-reveal="zoom" style="--delay:220ms">
+            <span class="ico"><svg width="19" height="19"><use href="#i-shield"></use></svg></span>
+            <div><strong>Histórico preservado</strong><span>Nenhum registro se perde</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 · Nutrição -->
+      <article class="detail">
+        <div class="detail__content">
+          <div class="detail__num" data-reveal="fade">03</div>
+          <span class="detail__tag" data-reveal="fade">Alimentação e manejo</span>
+          <h3 class="h-md" data-reveal>Nutrição com rastreabilidade de verdade.</h3>
+          <p data-reveal style="--delay:80ms">
+            Defina a dieta de cada cavalo conforme a fase de trabalho e acompanhe o fornecimento no dia a dia.
+            O que foi planejado e o que foi entregue ficam lado a lado, prontos para revisão.
+          </p>
+          <ul class="detail__list">
+            <li data-reveal="left" style="--delay:120ms"><svg><use href="#i-check"></use></svg> Dieta individual por cavalo e fase de trabalho</li>
+            <li data-reveal="left" style="--delay:170ms"><svg><use href="#i-check"></use></svg> Registro do manejo diário no cocho e no piquete</li>
+            <li data-reveal="left" style="--delay:220ms"><svg><use href="#i-check"></use></svg> Rastreabilidade do que foi efetivamente fornecido</li>
+            <li data-reveal="left" style="--delay:270ms"><svg><use href="#i-check"></use></svg> Ajustes acompanhados ao longo do tempo</li>
+          </ul>
+        </div>
+        <div class="detail__media" data-reveal="right">
+          <figure class="frame frame--parallax">
+            <img src="assets/img/feeding.jpg"
+                 srcset="assets/img/feeding-800.jpg 820w, assets/img/feeding.jpg 1600w"
+                 sizes="(max-width:860px) 92vw, 46vw"
+                 alt="Cavalos se alimentando de feno dentro da cocheira" loading="lazy" width="1600" height="1067"
+                 data-parallax data-speed="0.08" />
+          </figure>
+        </div>
+      </article>
+
+      <!-- 04 · Campeonatos -->
+      <article class="detail">
+        <div class="detail__content">
+          <div class="detail__num" data-reveal="fade">04</div>
+          <span class="detail__tag" data-reveal="fade">Campeonatos e provas</span>
+          <h3 class="h-md" data-reveal>Da inscrição ao resultado, na mesma linha do tempo.</h3>
+          <p data-reveal style="--delay:80ms">
+            Organize o calendário de competições, controle inscrições e registre resultados —
+            construindo o currículo esportivo de cada cavalo prova após prova.
+          </p>
+          <ul class="detail__list">
+            <li data-reveal="left" style="--delay:120ms"><svg><use href="#i-check"></use></svg> Agenda de campeonatos e provas da temporada</li>
+            <li data-reveal="left" style="--delay:170ms"><svg><use href="#i-check"></use></svg> Controle de inscrições por conjunto</li>
+            <li data-reveal="left" style="--delay:220ms"><svg><use href="#i-check"></use></svg> Resultados registrados na ficha do cavalo</li>
+            <li data-reveal="left" style="--delay:270ms"><svg><use href="#i-check"></use></svg> Evolução esportiva visível para o proprietário</li>
+          </ul>
+        </div>
+        <div class="detail__media" data-reveal="left">
+          <div class="detail__stack">
+            <figure class="frame">
+              <img src="assets/img/jumping.jpg"
+                   srcset="assets/img/jumping-800.jpg 820w, assets/img/jumping.jpg 1600w"
+                   sizes="(max-width:860px) 92vw, 46vw"
+                   alt="Conjunto saltando obstáculo em prova de hipismo" loading="lazy" width="1600" height="1135" />
+            </figure>
+            <figure class="frame">
+              <img src="assets/img/jumping-2-800.jpg" alt="Cavalo branco saltando obstáculo em competição" loading="lazy" width="820" height="677" />
+            </figure>
+            <figure class="frame">
+              <img src="assets/img/jumping-3-800.jpg" alt="Salto sobre obstáculo florido em pista de grama" loading="lazy" width="820" height="461" />
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 · Serviços -->
+      <article class="detail">
+        <div class="detail__content">
+          <div class="detail__num" data-reveal="fade">05</div>
+          <span class="detail__tag" data-reveal="fade">Serviços</span>
+          <h3 class="h-md" data-reveal>Casqueamento, massagem, treinamentos — tudo controlado.</h3>
+          <p data-reveal style="--delay:80ms">
+            Publique, organize e gerencie os serviços prestados no haras com controle de execução,
+            valores e histórico. Cada atendimento fica vinculado ao cavalo que o recebeu.
+          </p>
+          <ul class="detail__list">
+            <li data-reveal="left" style="--delay:120ms"><svg><use href="#i-check"></use></svg> Catálogo de serviços do haras</li>
+            <li data-reveal="left" style="--delay:170ms"><svg><use href="#i-check"></use></svg> Controle de execução e responsáveis</li>
+            <li data-reveal="left" style="--delay:220ms"><svg><use href="#i-check"></use></svg> Valores e histórico por atendimento</li>
+            <li data-reveal="left" style="--delay:270ms"><svg><use href="#i-check"></use></svg> Registro vinculado à ficha de cada cavalo</li>
+          </ul>
+        </div>
+        <div class="detail__media" data-reveal="right">
+          <figure class="frame frame--parallax">
+            <img src="assets/img/farrier.jpg"
+                 srcset="assets/img/farrier-800.jpg 820w, assets/img/farrier.jpg 1600w"
+                 sizes="(max-width:860px) 92vw, 46vw"
+                 alt="Ferrador realizando casqueamento no casco de um cavalo" loading="lazy" width="1600" height="1067"
+                 data-parallax data-speed="0.08" />
+          </figure>
+          <div class="badge-float badge-float--bl" data-reveal="zoom" style="--delay:220ms">
+            <span class="ico"><svg width="19" height="19"><use href="#i-tools"></use></svg></span>
+            <div><strong>Serviço registrado</strong><span>Quem fez, quando e quanto</span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================================================== Faixa parallax (cita) -->
+  <section class="parallax-band">
+    <div class="parallax-band__media" data-parallax data-speed="0.22">
+      <img src="assets/img/mane-gold.jpg"
+           srcset="assets/img/mane-gold-800.jpg 820w, assets/img/mane-gold.jpg 1600w"
+           sizes="100vw"
+           alt="Close de cavalo alazão com a crina ao vento na luz dourada do fim de tarde" loading="lazy" width="1600" height="1067" />
+      <video class="band__video" data-video-src="assets/videos/bond.mp4"
+             poster="assets/img/poster-bond.jpg"
+             muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+    </div>
+    <div class="parallax-band__content">
+      <blockquote data-reveal>
+        “Um bom haras não se mede só pelos cavalos que tem,<br />
+        mas pelo <span>cuidado</span> que consegue provar.”
+      </blockquote>
+      <cite data-reveal="fade" style="--delay:200ms">HorseHub360 · Gestão completa. Performance total.</cite>
+    </div>
+  </section>
+
+  <!-- ==================================================== Passaporte digital -->
+  <section class="section section--deep" id="passaporte">
+    <div class="container passport">
+      <div>
+        <span class="eyebrow" data-reveal="fade">Passaporte digital</span>
+        <h2 class="h-lg" data-reveal>A vida inteira do cavalo em <span class="gold">um único documento</span>.</h2>
+        <p class="lead" data-reveal style="--delay:100ms">
+          Centralize o histórico do cavalo em um passaporte digital com dados de saúde, treinos,
+          alimentação, competições e documentos importantes. Na venda, no transporte ou numa emergência
+          veterinária, a informação está pronta — organizada e completa.
+        </p>
+        <ul class="check-list">
+          <li data-reveal style="--delay:160ms"><svg><use href="#i-doc"></use></svg><span><strong>Documentos no lugar certo</strong> — registro, exames, laudos e comprovantes anexados.</span></li>
+          <li data-reveal style="--delay:220ms"><svg><use href="#i-camera"></use></svg><span><strong>Mídias do animal</strong> — fotos e vídeos que contam a evolução ao longo do tempo.</span></li>
+          <li data-reveal style="--delay:280ms"><svg><use href="#i-clock"></use></svg><span><strong>Linha do tempo contínua</strong> — cada registro do dia a dia entra no histórico.</span></li>
+          <li data-reveal style="--delay:340ms"><svg><use href="#i-mobile"></use></svg><span><strong>Na palma da mão</strong> — consulte pelo celular, no haras ou na pista.</span></li>
+        </ul>
+      </div>
+
+      <div data-reveal="zoom">
+        <div class="passport__card">
+          <div class="passport__top">
+            <img class="passport__avatar" src="assets/img/eye-800.jpg" alt="Retrato aproximado de um cavalo" loading="lazy" width="64" height="64" />
+            <div class="passport__id">
+              <strong>Vento do Norte</strong>
+              <span>Mangalarga Marchador · Macho · 2019</span>
+            </div>
+            <div class="passport__chip">HH<br />360°</div>
+          </div>
+          <div class="passport__grid">
+            <div class="passport__item is-ok"><span>Vacinação</span><strong>Em dia</strong></div>
+            <div class="passport__item is-warn"><span>Vermifugação</span><strong>Em 6 dias</strong></div>
+            <div class="passport__item"><span>Último treino</span><strong>Salto · ontem</strong></div>
+            <div class="passport__item"><span>Dieta atual</span><strong>Fase de carga</strong></div>
+            <div class="passport__item"><span>Provas na temporada</span><strong>Registradas</strong></div>
+            <div class="passport__item"><span>Documentos</span><strong>Anexados</strong></div>
+          </div>
+          <div class="passport__foot">
+            <span class="passport__qr" aria-hidden="true"></span>
+            <span>Passaporte digital HorseHub360 — histórico completo, sempre atualizado.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================= Portal do proprietário -->
+  <section class="section section--mid" id="proprietario">
+    <div class="container split">
+      <div data-reveal="left">
+        <div class="dash">
+          <div class="dash__bar">
+            <i></i><i></i><i></i>
+            <span>portal do proprietário</span>
+          </div>
+          <div class="dash__body">
+            <div class="dash__kpis">
+              <div class="dash__kpi"><span>Cavalos</span><strong>6</strong></div>
+              <div class="dash__kpi"><span>Treinos no mês</span><strong>48</strong></div>
+              <div class="dash__kpi"><span>Provas</span><strong>3</strong></div>
+            </div>
+            <div class="dash__chart" data-chart aria-hidden="true">
+              <i data-h="45"></i><i data-h="62"></i><i data-h="38"></i><i data-h="74"></i>
+              <i data-h="55"></i><i data-h="86"></i><i data-h="66"></i><i data-h="94"></i>
+            </div>
+            <div class="dash__rows">
+              <div class="dash__row"><span class="dot"></span> Treino de salto concluído <small>Vento do Norte</small></div>
+              <div class="dash__row"><span class="dot is-gold"></span> Casqueamento realizado <small>Aurora</small></div>
+              <div class="dash__row"><span class="dot"></span> Resultado de prova registrado <small>Índigo</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="eyebrow" data-reveal="fade">Portal do proprietário</span>
+        <h2 class="h-lg" data-reveal>O proprietário acompanha. O haras ganha <span class="gold">confiança</span>.</h2>
+        <p class="lead" data-reveal style="--delay:100ms">
+          Cada proprietário enxerga com clareza a rotina, a evolução e o desempenho dos seus cavalos —
+          sem precisar ligar para perguntar. Menos cobrança no WhatsApp, mais relação de longo prazo.
+        </p>
+        <ul class="check-list">
+          <li data-reveal style="--delay:160ms"><svg><use href="#i-chart"></use></svg><span><strong>Evolução visível</strong> — treinos, cuidados e resultados apresentados de forma simples.</span></li>
+          <li data-reveal style="--delay:220ms"><svg><use href="#i-users"></use></svg><span><strong>Acesso próprio</strong> — o proprietário entra e consulta quando quiser.</span></li>
+          <li data-reveal style="--delay:280ms"><svg><use href="#i-shield"></use></svg><span><strong>Transparência</strong> — o cuidado com o animal fica documentado, não apenas prometido.</span></li>
+        </ul>
+        <p data-reveal style="margin-top:1.8rem;--delay:340ms">
+          <a class="link-arrow" href="#contato">Quero mostrar isso aos meus clientes <svg width="18" height="18"><use href="#i-arrow"></use></svg></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= Como funciona -->
+  <section class="section section--cream" id="como-funciona">
+    <div class="container">
+      <div class="section-head is-centered">
+        <span class="eyebrow is-centered" data-reveal="fade">Como funciona</span>
+        <h2 class="h-lg" data-reveal>Quatro passos até o haras rodando no 360°</h2>
+        <p class="lead" style="margin-inline:auto" data-reveal="fade">
+          Um processo direto, conduzido junto com a sua equipe — do primeiro contato à operação no dia a dia.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step" data-reveal style="--delay:0ms">
+          <div class="step__dot">01</div>
+          <h4>Conversa inicial</h4>
+          <p>Entendemos o tamanho do plantel, a rotina do haras e o que você precisa controlar.</p>
+        </div>
+        <div class="step" data-reveal style="--delay:100ms">
+          <div class="step__dot">02</div>
+          <h4>Configuração</h4>
+          <p>Estruturamos módulos, baias, equipe e serviços conforme a realidade da sua operação.</p>
+        </div>
+        <div class="step" data-reveal style="--delay:200ms">
+          <div class="step__dot">03</div>
+          <h4>Cadastro do plantel</h4>
+          <p>Os cavalos entram na plataforma com fichas, documentos e histórico disponível.</p>
+        </div>
+        <div class="step" data-reveal style="--delay:300ms">
+          <div class="step__dot">04</div>
+          <h4>Equipe em campo</h4>
+          <p>Treinadores, tratadores e proprietários passam a usar a plataforma na rotina.</p>
+        </div>
+      </div>
+
+      <!-- Para quem é -->
+      <div class="section-head is-centered" style="margin-top:clamp(4rem,8vw,6rem)">
+        <span class="eyebrow is-centered" data-reveal="fade">Para quem é</span>
+        <h2 class="h-lg" data-reveal>Feito para quem vive do cavalo</h2>
+      </div>
+
+      <div class="audience">
+        <article class="audience__card" data-reveal style="--delay:0ms">
+          <img src="assets/img/farm-800.jpg" alt="Sede de haras vista do campo em dia claro" loading="lazy" width="820" height="461" />
+          <h4>Haras</h4>
+          <p>Controle do plantel, da rotina e da relação com os proprietários dos animais.</p>
+        </article>
+        <article class="audience__card" data-reveal style="--delay:100ms">
+          <img src="assets/img/jumping-2-800.jpg" alt="Cavalo e cavaleiro em treino de salto" loading="lazy" width="820" height="677" />
+          <h4>Centros de treinamento</h4>
+          <p>Planejamento de treinos, evolução por conjunto e calendário de provas organizado.</p>
+        </article>
+        <article class="audience__card" data-reveal style="--delay:200ms">
+          <img src="assets/img/profile-800.jpg" alt="Cavalo em pé no campo com montanhas ao fundo" loading="lazy" width="820" height="461" />
+          <h4>Proprietários</h4>
+          <p>Acompanhamento transparente do cuidado e do desempenho de cada cavalo.</p>
+        </article>
+        <article class="audience__card" data-reveal style="--delay:300ms">
+          <img src="assets/img/farrier-2-800.jpg" alt="Ferrador trabalhando ao lado de cavalo tordilho" loading="lazy" width="820" height="574" />
+          <h4>Profissionais e serviços</h4>
+          <p>Casqueadores, veterinários, massoterapeutas e treinadores com histórico documentado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================== Galeria -->
+  <section class="section section--deep" id="galeria">
+    <div class="container-wide">
+      <div class="section-head is-centered">
+        <span class="eyebrow is-centered" data-reveal="fade">O dia a dia</span>
+        <h2 class="h-lg" data-reveal>A rotina do haras, registrada como merece</h2>
+        <p class="lead" style="margin-inline:auto" data-reveal="fade">
+          Da cocheira ao pódio: cada momento vira informação útil dentro da plataforma.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <figure class="gallery__item gallery__item--tall" data-reveal="zoom" style="--delay:0ms">
+          <img src="assets/img/trainer-800.jpg" alt="Treinador conduzindo cavalo pelo cabresto na área externa do haras" loading="lazy" width="820" height="1238" />
+          <figcaption>Manejo diário</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal="zoom" style="--delay:80ms">
+          <img src="assets/img/stable-boxes.jpg"
+               srcset="assets/img/stable-boxes-800.jpg 820w, assets/img/stable-boxes.jpg 1600w"
+               sizes="(max-width:860px) 92vw, 45vw"
+               alt="Cavalos olhando para fora das baias de madeira" loading="lazy" width="1600" height="1067" />
+          <figcaption>Cocheiras e plantel</figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="zoom" style="--delay:160ms">
+          <img src="assets/img/golden-800.jpg" alt="Cavalo alazão iluminado pelo sol do fim de tarde" loading="lazy" width="820" height="547" />
+          <figcaption>Fim de tarde</figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="zoom" style="--delay:0ms">
+          <img src="assets/img/fence-800.jpg" alt="Cercas de madeira dos piquetes de um haras" loading="lazy" width="820" height="547" />
+          <figcaption>Piquetes</figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="zoom" style="--delay:80ms">
+          <img src="assets/img/pasture-800.jpg" alt="Cavalo pastando em campo aberto ao entardecer" loading="lazy" width="820" height="547" />
+          <figcaption>Descanso no piquete</figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="zoom" style="--delay:160ms">
+          <img src="assets/img/portrait-bw-800.jpg" alt="Retrato em preto e branco de um cavalo de frente" loading="lazy" width="820" height="1230" />
+          <figcaption>Cada cavalo, uma história</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal="zoom" style="--delay:0ms">
+          <img src="assets/img/jumping-3.jpg"
+               srcset="assets/img/jumping-3-800.jpg 820w, assets/img/jumping-3.jpg 1600w"
+               sizes="(max-width:860px) 92vw, 45vw"
+               alt="Conjunto saltando obstáculo decorado com flores" loading="lazy" width="1600" height="900" />
+          <figcaption>Dia de prova</figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="zoom" style="--delay:80ms">
+          <img src="assets/img/profile-800.jpg" alt="Cavalo de perfil em campo com montanhas ao fundo" loading="lazy" width="820" height="461" />
+          <figcaption>Fora da pista</figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="zoom" style="--delay:160ms">
+          <img src="assets/img/rear-800.jpg" alt="Cavalo empinando durante trabalho na areia" loading="lazy" width="820" height="1117" />
+          <figcaption>Energia em treino</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================== FAQ -->
+  <section class="section section--mid" id="faq">
+    <div class="container">
+      <div class="section-head is-centered">
+        <span class="eyebrow is-centered" data-reveal="fade">Dúvidas frequentes</span>
+        <h2 class="h-lg" data-reveal>Antes de falar com a gente</h2>
+      </div>
+
+      <div class="faq" id="faqList">
+        <div class="faq__item" data-reveal style="--delay:0ms">
+          <button class="faq__q" aria-expanded="false">
+            <span>Preciso instalar algum programa no computador?</span><i aria-hidden="true"></i>
+          </button>
+          <div class="faq__a"><div><p>Não. O HorseHub360 é acessado pelo navegador, em <a href="https://apps.horsehub360.com.br" target="_blank" rel="noopener noreferrer" style="color:var(--gold-500)">apps.horsehub360.com.br</a>, sem instalação.</p></div></div>
+        </div>
+
+        <div class="faq__item" data-reveal style="--delay:70ms">
+          <button class="faq__q" aria-expanded="false">
+            <span>Dá para usar no celular, dentro do haras?</span><i aria-hidden="true"></i>
+          </button>
+          <div class="faq__a"><div><p>Sim. A plataforma foi pensada para ser usada no celular, no tablet ou no computador — inclusive no meio da rotina, entre a cocheira e a pista.</p></div></div>
+        </div>
+
+        <div class="faq__item" data-reveal style="--delay:140ms">
+          <button class="faq__q" aria-expanded="false">
+            <span>Consigo dar acesso aos proprietários dos cavalos?</span><i aria-hidden="true"></i>
+          </button>
+          <div class="faq__a"><div><p>Sim. O portal do proprietário permite que cada cliente acompanhe a evolução, a rotina e o desempenho dos seus cavalos de forma clara e organizada.</p></div></div>
+        </div>
+
+        <div class="faq__item" data-reveal style="--delay:210ms">
+          <button class="faq__q" aria-expanded="false">
+            <span>Serve para haras de qualquer porte?</span><i aria-hidden="true"></i>
+          </button>
+          <div class="faq__a"><div><p>A plataforma atende desde estruturas menores até centros de treinamento com plantel numeroso. Fale com o nosso time pelo WhatsApp para avaliarmos a sua operação.</p></div></div>
+        </div>
+
+        <div class="faq__item" data-reveal style="--delay:280ms">
+          <button class="faq__q" aria-expanded="false">
+            <span>Como funciona a contratação?</span><i aria-hidden="true"></i>
+          </button>
+          <div class="faq__a"><div><p>O orçamento é personalizado de acordo com o tamanho do plantel e os módulos que você quer usar. Chame no WhatsApp e receba uma proposta sob medida.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= CTA final -->
+  <section class="cta" id="contato">
+    <div class="cta__media" data-parallax data-speed="0.2">
+      <img src="assets/img/sunset-ride.jpg"
+           srcset="assets/img/sunset-ride-800.jpg 820w, assets/img/sunset-ride.jpg 1600w"
+           sizes="100vw"
+           alt="Cavaleiro montado ao pôr do sol em campo aberto entre montanhas" loading="lazy" width="1600" height="1067" />
+    </div>
+    <div class="container">
+      <div class="cta__box" data-reveal="zoom">
+        <span class="eyebrow is-centered">Vamos conversar</span>
+        <h2 class="h-lg">Quer um orçamento para o seu haras?</h2>
+        <p class="lead">
+          Fale agora com o nosso time, conte como funciona a sua operação e receba
+          uma proposta personalizada para colocar o seu plantel no 360°.
+        </p>
+        <div class="cta__actions">
+          <a class="btn btn-wa" target="_blank" rel="noopener noreferrer"
+             href="https://wa.me/5517997032430?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360.">
+            <img src="assets/whatsapp.png" width="18" height="18" alt="" /> Solicitar orçamento no WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="https://apps.horsehub360.com.br" target="_blank" rel="noopener noreferrer">Conhecer a plataforma</a>
+        </div>
+        <p class="cta__note">Atendimento humano · Proposta sob medida para o seu plantel</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================================================================ Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#inicio" aria-label="HorseHub360 — início">
+          <img class="brand__icon" src="assets/logo-icone-gold.png" alt="" width="44" height="44" />
+          <span class="brand__text">
+            <span class="brand__name">HORSE HUB <span>360°</span></span>
+            <span class="brand__tag">Gestão completa · Performance total</span>
+          </span>
+        </a>
+        <p>Plataforma de gestão 360° para haras, centros de treinamento e profissionais do meio equestre.</p>
+        <!-- TODO: substituir "#" pelos perfis reais das redes sociais -->
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
+          <a href="#" aria-label="Facebook"><svg><use href="#i-facebook"></use></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"></use></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h5>Plataforma</h5>
+        <ul>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#passaporte">Passaporte digital</a></li>
+          <li><a href="#proprietario">Portal do proprietário</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h5>Saiba mais</h5>
+        <ul>
+          <li><a href="#plataforma">A plataforma</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
+          <li><a href="https://apps.horsehub360.com.br" target="_blank" rel="noopener noreferrer">Acessar o sistema</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h5>Contato</h5>
+        <ul>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://wa.me/5517997032430?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360.">Orçamento pelo WhatsApp</a></li>
+          <li><a href="#contato">Falar com o time</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> HorseHub360 Tecnologia Ltda. Todos os direitos reservados.</span>
+      <span>Feito para quem vive do cavalo.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" target="_blank" rel="noopener noreferrer"
+   href="https://wa.me/5517997032430?text=Olá!%20Quero%20um%20orçamento%20do%20HorseHub360."
+   aria-label="Falar no WhatsApp">
+  <img src="assets/whatsapp.png" alt="" width="29" height="29" />
+</a>
+
+<button class="to-top" id="toTop" aria-label="Voltar ao topo">
+  <svg><use href="#i-top"></use></svg>
+</button>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,9 @@
+# Vídeos originais do banco de imagens (~26 MB) — o site usa as versões
+# comprimidas geradas por `make videos`. Remova estas linhas se quiser
+# versionar as fontes também.
+assets/videos/*_1280x720.mp4
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+*.swp
